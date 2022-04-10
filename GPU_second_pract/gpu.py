@@ -57,3 +57,7 @@ class GPU:
         else:
             return self.__print_unknown()
         return self.__print_known(year)
+
+
+gpu1 = GPU("Nvidia", 1660, "TU116", ["Ti", 6, 1500.0, "GTX"], "7680×4320")
+print(gpu1.get_info())
