@@ -1,4 +1,4 @@
-from gpu_specification import nvidia, amd
+from Practice2.gpu_specification import nvidia, amd
 
 
 class GPU:
@@ -20,6 +20,16 @@ class GPU:
     def __repr__(self) -> str:
         return f"{self.manufacture} {self.prefix} {self.model}{self.mod} {self.memory}GB {self.chip} " \
                f"{self.frequency} MHz {self.resolution}"
+
+    def __eq__(self, other):
+        return self.manufacture == other.manufacture and \
+               self.model == other.model and \
+               self.mod == other.mod and \
+               self.memory == other.memory and \
+               self.frequency == other.frequency and \
+               self.prefix == other.prefix and \
+               self.chip == other.chip and \
+               self.resolution == other.resolution
 
     def __print_unknown(self) -> str:
         return f"""Видеокарта: {self.model}{self.mod}
@@ -57,7 +67,3 @@ class GPU:
         else:
             return self.__print_unknown()
         return self.__print_known(year)
-
-
-gpu1 = GPU("Nvidia", 1660, "TU116", ["Ti", 6, 1500.0, "GTX"], "7680×4320")
-print(gpu1.get_info())
