@@ -12,12 +12,10 @@ class StandardList2(AbstractStructure):
             return False
         if index is None:
             self.__list.append(value)
-            self.size += 1
-            return True
         else:
             self.__list.insert(index, value)
-            self.size += 1
-            return True
+        self.size += 1
+        return True
 
     def insert(self, value: GPU, index: int) -> bool:
         if (index is not None and self.size <= index < -self.size) or index is None:
@@ -57,28 +55,25 @@ if __name__ == "__main__":
     gpu4 = g.generator()
     gpu5 = g.generator()
     gpu6 = g.generator()
-    gpu7 = g.generator()
-    print([gpu1, gpu2, gpu3, gpu4, gpu5, gpu6, gpu7])
-
+    print([gpu1, gpu2, gpu3, gpu4, gpu5, gpu6])
+    print("-" * 300)
     s_list = StandardList2()
     print(f"add1: {s_list.add(gpu1)}")
     print(f"add2: {s_list.add(gpu2)}")
-    print(f"add3: {s_list.add(gpu3, 0)}")
-    print(f"insert: {s_list.insert(gpu4, 1)}")
-    print(f"add4: {s_list.add(gpu5)}")
-    print(f"add5: {s_list.add(gpu6)}")
-    print(f"add6: {s_list.add(gpu7)}")
-
+    print(f"add3: {s_list.add(gpu3)}")
+    print(f"add4: {s_list.add(gpu4)}")
+    print(f"add5: {s_list.add(gpu5)}")
+    print("-" * 300)
+    print(f"insert: {s_list.insert(gpu6, 1)}")
     print(f"get_all1: {s_list.get_all()}")
     print(f"len1: {len(s_list)}")
-
+    print("-" * 300)
     print(f"find gpu1: {s_list.find(gpu1)}")
     print(f"find gpu2: {s_list.find(gpu2)}")
-
+    print("-" * 300)
     print(f"get1: {s_list.get(1)}")
-
-    print(f"remove1: {s_list.remove(gpu2)}")
-    print(f"remove2: {s_list.remove(gpu2)}")
-
+    print("-" * 300)
+    print(f"remove gpu3: {s_list.remove(gpu3)}")
+    print(f"remove gpu3: {s_list.remove(gpu3)}")
     print(f"get_all2: {s_list.get_all()}")
     print(f"len2: {len(s_list)}")

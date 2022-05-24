@@ -34,10 +34,10 @@ class LinkList(AbstractStructure):
             while current.next and i < index - 1:
                 current = current.next
                 i += 1
-            self.size += 1
             node = Node(value)
             node.next = current.next
             current.next = node
+            self.size += 1
         return True
 
     def insert(self, value: GPU, index: int) -> bool:
@@ -112,21 +112,28 @@ if __name__ == "__main__":
     gpu5 = g.generator()
     gpu6 = g.generator()
     s_list = LinkList()
-    s_list.add(gpu1)
-    s_list.add(gpu2)
-    s_list.add(gpu3)
-    s_list.add(gpu4)
-    print(f"add: {s_list.add(gpu5, 0)}")
     print(f"all GPUs: {[gpu1, gpu2, gpu3, gpu4, gpu5, gpu6]}")
+    print("-" * 300)
+    print(f"add gpu1: {s_list.add(gpu1)}")
+    print(f"add gpu2: {s_list.add(gpu2)}")
+    print(f"add gpu3: {s_list.add(gpu3)}")
+    print(f"add gpu4: {s_list.add(gpu4)}")
+    print(f"add gpu5: {s_list.add(gpu5, 1)}")
+    print(f"find: {s_list.find(gpu2)}")
+    print("-" * 300)
     print(f"get_all:  {s_list.get_all()}")
     print(f"size: {s_list.size}")
-    print(f"remove: {s_list.remove(gpu5)}")
+    print("-" * 300)
+    print(f"remove gpu5: {s_list.remove(gpu5)}")
+    print(f"find: {s_list.find(gpu5)}")
     print(f"get_all:  {s_list.get_all()}")
     print(f"size: {s_list.size}")
+    print("-" * 300)
     print(f"get gpu1: {s_list.get(0)}")
     print(f"get gpu4: {s_list.get(3)}")
     print(f"get gpu5: {s_list.get(4)}")
-    print(f"insert: {s_list.insert(gpu6, 1)}")
+    print("-" * 300)
+    print(f"insert gpu6: {s_list.insert(gpu6, 1)}")
     print(f"get_all:  {s_list.get_all()}")
     print(f"size: {s_list.size}")
-    print(f"find: {s_list.find(gpu5)}")
+    print("-" * 300)
