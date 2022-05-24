@@ -1,6 +1,6 @@
 import random
-from gpu import GPU
-from gpu_specification import nvidia, amd, nvidia_chips, amd_chips
+from Practice2.gpu import GPU
+from Practice2.gpu_specification import nvidia, amd, nvidia_chips, amd_chips
 
 
 class Generator:
